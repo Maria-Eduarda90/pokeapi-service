@@ -12,7 +12,7 @@ async function bootstrap() {
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document); // <--- A rota será: /api
+  SwaggerModule.setup('api', app, document); // <--- A rota será: http://localhost:3000/api
 
   await app.listen(process.env.PORT ?? 3000);
 }
