@@ -45,6 +45,18 @@ GET: listagem todos os pokemons
 GET: buscar o pokemon pelo nome
 ```
 
+Rota do swagger:
+
+```
+http://localhost:3000/api
+```
+
+Rota da api:
+
+```
+http://localhost:3000/pokemons
+```
+
 ## Instale as dependecias
 
 ```bash
