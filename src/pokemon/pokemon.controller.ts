@@ -1,15 +1,22 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 import { PokemonDTO } from './dto/pokemon.dto';
 import { PokemonService } from './pokemon.service';
-import { ApiOkResponse } from '@nestjs/swagger';
+import { ApiOkResponse, ApiParam } from '@nestjs/swagger';
 
-@Controller('pokemon')
+@Controller('pokemons')
 export class PokemonController {
     constructor(private readonly pokemonService: PokemonService) { }
 
-    @Get('fire')
-    @ApiOkResponse({ description: 'Lista de pokémons do tipo Fire', type: [PokemonDTO] })
-    async getFirePokemons(): Promise<PokemonDTO[]> {
-        return this.pokemonService.getFirePokemons();
+    @Get()
+    @ApiOkResponse({ description: 'Lista dos primeiros Pokémons', type: [PokemonDTO] })
+    async getAll(): Promise<PokemonDTO[]> {
+        return this.pokemonService.getAllPokemons();
+    }
+
+    @Get(':name')
+    @ApiParam({ name: 'name', description: 'Nome do Pokémon' })
+    @ApiOkResponse({ description: 'Detalhes de um Pokémon pelo nome', type: PokemonDTO })
+    async getByName(@Param('name') name: string): Promise<PokemonDTO> {
+        return this.pokemonService.getPokemonByName(name);
     }
 }
