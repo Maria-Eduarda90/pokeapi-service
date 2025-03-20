@@ -20,7 +20,7 @@
 </p>
   
 
-## Desafio Técnico 2
+## Desafio Técnico
 
 Objetivo:
 Criar um serviço node.js que consuma uma API de dados abertos, filtrar e transformar os dados e expor um novo endpoint com os dados processados.
